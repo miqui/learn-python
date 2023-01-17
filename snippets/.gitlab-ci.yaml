@@ -1,0 +1,21 @@
+stages:
+  - build
+  - test
+  - deploy
+
+build:
+  stage: build
+  script:
+    - python3 -m venv venv
+    - source venv/bin/activate
+    - pip install -r requirements.txt
+
+test:
+  stage: test
+  script:
+    - pytest
+
+deploy:
+  stage: deploy
+  script:
+    - echo "Deploying to production..."
